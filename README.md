@@ -1,3 +1,3 @@
 # SmartHome
 
-<img src="https://raw.githubusercontent.com/arunramarumugam25/flutter_upload_play_video/master/Videoplayer_screenshot.jpg" width="300" height="550" />
+<img src="https://github.com/arunramarumugam25/SmartHome/blob/master/smarthome.png" width="300" height="550" />
