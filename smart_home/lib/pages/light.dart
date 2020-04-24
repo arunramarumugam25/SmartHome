@@ -15,22 +15,28 @@ class _LightState extends State<Light> {
   bool bedroomlight;
   bool outdoorlight;
 
-
   void initState(){
 
     _databaseReference.child('hall light').once().then((DataSnapshot data) {
-      halllight=data.value;
+
+      setState(() {
+        halllight=data.value;
+      });
     
 
     });
 
     _databaseReference.child('bedroom light').once().then((DataSnapshot data) {
-      bedroomlight=data.value;
+      setState(() {
+        bedroomlight=data.value;
+      });
 
     });
 
     _databaseReference.child('outdoor light').once().then((DataSnapshot data) {
-      outdoorlight=data.value;
+      setState(() {
+        outdoorlight=data.value;
+      });
 
     });
 
@@ -46,8 +52,8 @@ class _LightState extends State<Light> {
         backgroundColor: Colors.deepPurple,
       ),
 
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: outdoorlight==null?Center(child: CircularProgressIndicator(),):Column(
+      //  crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(children: <Widget>[
             Padding(

@@ -18,15 +18,21 @@ class _FanState extends State<Fan> {
   void initState(){
 
     _databaseReference.child('hall fan').once().then((DataSnapshot data) {
-      hallfan=data.value;
-      print(hallfan);
+      setState(() {
+         hallfan=data.value;
+      });
 
     });
 
     _databaseReference.child('bedroom fan').once().then((DataSnapshot data) {
-      bedroomfan=data.value;
+      setState(() {
+        bedroomfan=data.value;
+      });
+      
 
     });
+
+    super.initState();
 
   }
 
@@ -37,10 +43,12 @@ class _FanState extends State<Fan> {
         title: Text('Fan controller'),
         backgroundColor: Colors.deepPurple,
       ),
-      body: Column(
+      body: bedroomfan==null?Center(child: CircularProgressIndicator(),):Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Row(children: <Widget>[
+          Row(
+            
+            children: <Widget>[
             Padding(
                 padding: EdgeInsets.all(40),
                 child: Text(
@@ -49,9 +57,9 @@ class _FanState extends State<Fan> {
                 )),
 
                 
-            Padding(
-              padding: EdgeInsets.only(left: 47),
-              child: Switch(
+
+                
+             Switch(
                   value: hallfan,
                   onChanged: (value) {
                     setState(() {
@@ -65,7 +73,7 @@ class _FanState extends State<Fan> {
                       }
                     });
                   }),
-            )
+            
           ]),
           Row(children: <Widget>[
             Padding(
