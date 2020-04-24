@@ -37,7 +37,7 @@ _databaseReference.child('temperature').onValue.listen((Event event) {
     return Scaffold(
         appBar: AppBar(
           elevation: 15.0,
-            title: Text('SMART HOME',style: GoogleFonts.oswald()), 
+            title: Text('SMART HOME'), 
             backgroundColor: Colors.blue[700]),
         body: Column(children: <Widget>[
           Text(
