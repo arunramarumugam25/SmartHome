@@ -40,12 +40,12 @@ _databaseReference.child('temperature').onValue.listen((Event event) {
             title: Text('SMART HOME'), 
             backgroundColor: Colors.blue[700]),
         body: Column(children: <Widget>[
-          Text(
-            'Temperature: $temperature',
-            style: TextStyle(
-                fontSize: 20,
-                color: Colors.blue[900],
-                fontWeight: FontWeight.w600),
+          Padding(
+            padding: EdgeInsets.only(top: 20),
+            child: Text(
+              'Temperature: $temperature',
+              style: TextStyle(fontSize: 20, color: Colors.blue[900], fontWeight: FontWeight.w600),
+            ),
           ),
           Padding(
             padding: EdgeInsets.only(top: 20),
